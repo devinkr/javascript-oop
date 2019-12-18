@@ -162,7 +162,7 @@ wonderWoman
   */
 ```
 
-`new`, a JavaScript keyword, does the following, in order:
+The `new` keyword in JavaScript does the following, in order:
 
 1. Creates an empty object (`{}`).
 1. Attaches the constructor function to the object as a property.
@@ -172,6 +172,38 @@ wonderWoman
 A new object created this way is sometimes called an 'instance' of type `Hero`.
 
 ### You Do: Refactor Object Literals Using Constructors
+
+You're working for a company called CarMeisters.  Your code contains a whole bunch of objects like this:
+
+```js
+
+const fusion = {
+  type: 'full-size',
+  body: 'sedan',
+  make: 'Ford',
+  model: 'Fusion',
+  doors: '4-door',
+  available: true,
+  bookReservation: function() {
+    this.available = false
+  }
+}
+
+const jetta = {
+  type: 'standard',
+  body: 'sedan',
+  make: 'Volkswagen',
+  model: 'Jetta',
+  doors: '4-door',
+  available: true,
+  bookReservation: function() {
+    this.available = false
+  }
+}
+```
+
+Use what you've learned to create a constructor to allow you to produce many different car objects.
+
 
 ## Prototypes
 
@@ -192,6 +224,7 @@ our custom objects?
 
 ### You Do: Add Methods to the Prototype
 
+How can you refactor your `Car` using a protoype so that we have a more efficient system?  Add a protoype and move the methods there that all of the cars share!
 
 ## Classes in JavaScript
 
@@ -204,8 +237,7 @@ _me_: There aren't **real** classes in JavaScript.  Classes in JavaScript are ju
 > Follow along with Prompt #1 in [JS OOP
 > Practice](https://git.generalassemb.ly/dc-wdi-fundamentals/js-oop-practice)
 
-We briefly saw how to define a class in the previous section, in comparison to
-how we do so in Ruby, Python and PHP. The syntax looks like this:
+The syntax to define a class in JavaScript looks like this:
 
 ![Class Syntax](assets/js-class-syntax.png)
 
@@ -226,9 +258,12 @@ const outback = new Car('Subaru', 'Outback', 'Forest Green')
 
 The `new` keyword will automatically:
 
-1. Create a new, empty object for us
-2. Generate a context for that object (`this` = the new object)
-3. Return the object instance from our class
+1. Creates an empty object (`{}`).
+1. Attaches the constructor function to the object as a property.
+1. Invokes the constructor function as a method on the object.
+1. Returns the object.
+
+How is this different from the way that we saw it used with constructors before?
 
 ### You Do: Define an Animal Class
 
@@ -244,7 +279,7 @@ One of the core concepts of OOP we need to implement is inheritance.
 > Follow along with Prompt #3 in [JS OOP
 > Practice](https://git.generalassemb.ly/dc-wdi-fundamentals/js-oop-practice)
 
-### Turn & Talk 
+### Turn & Talk
 
 Turn to your neighbor or the people in your row and discuss the following
 questions:
