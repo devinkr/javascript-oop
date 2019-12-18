@@ -169,6 +169,8 @@ The `new` keyword in JavaScript does the following, in order:
 1. Invokes the constructor function as a method on the object.
 1. Returns the object.
 
+If we forget to use the `new` keyword what happens is that the context of `this` is not set to the new object!  That means that we'll wind up creating all of our `members` (the properties and methods) on the global object.  In the browser, that means we'll be adding them to the `window` object.
+
 A new object created this way is sometimes called an 'instance' of type `Hero`.
 
 ### You Do: Refactor Object Literals Using Constructors
@@ -264,6 +266,8 @@ The `new` keyword will automatically:
 1. Returns the object.
 
 How is this different from the way that we saw it used with constructors before?
+
+> One nice thing about the class syntax is that you cannot forget to use the `new` keyword because you'll get an error immediately in the console if you do.
 
 ### You Do: Define an Animal Class
 
