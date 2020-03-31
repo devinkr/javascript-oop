@@ -230,7 +230,7 @@ How can you refactor your `Car` using a protoype so that we have a more efficien
 
 ## Classes in JavaScript
 
-_you_: Wait, you said that there weren't classes in JavaScript?
+_you_: Wait, you said that there weren't classes in JavaScript...
 
 _me_: There aren't **real** classes in JavaScript.  Classes in JavaScript are just _**syntactic sugar**_.  Syntactic sugar is syntax within a programming language that is designed to make things easier to read or to express. It makes the language "sweeter" for human use.
 
@@ -251,7 +251,7 @@ Notice the use of `this` and the fact that we're not returning from the class?
 When we want to generate instances of this class, we'll use the `new` keyword:
 
 ```js
-const carolla = new Car('Toyota', 'Carolla', 'Grey')
+const corolla = new Car('Toyota', 'Corolla', 'Silver')
 const outback = new Car('Subaru', 'Outback', 'Forest Green')
 ```
 
