@@ -175,31 +175,41 @@ A new object created this way is sometimes called an 'instance' of type `Hero`.
 
 ### You Do: Refactor Object Literals Using Constructors
 
-You're working for a company called CarMeisters.  Your code contains a whole bunch of objects like this:
+You're working for a car rental company called CarMeisters.  Your code contains a whole bunch of objects like this:
 
 ```js
 
 const fusion = {
-  type: 'full-size',
   body: 'sedan',
   make: 'Ford',
   model: 'Fusion',
-  doors: '4-door',
   available: true,
+  mileage: 0,
   bookReservation: function() {
     this.available = false
+  },
+  returnVehicle: function() {
+    this.available = true
+  },
+  drive: function(milesDriven) {
+    this.mileage += milesDriven
   }
 }
 
 const jetta = {
-  type: 'standard',
   body: 'sedan',
   make: 'Volkswagen',
   model: 'Jetta',
-  doors: '4-door',
   available: true,
+  mileage: 0,
   bookReservation: function() {
     this.available = false
+  },
+  returnVehicle: function() {
+    this.available = true
+  },
+  drive: function(milesDriven) {
+    this.mileage += milesDriven
   }
 }
 ```
@@ -210,8 +220,8 @@ Use what you've learned to create a constructor to allow you to produce many dif
 ## Prototypes
 
 In the previous section, we saw how to use constructors to deduplicate effort
-in creating new objects that share attributes. We learned that we should never
-define a method inside a constructor function, because we will end up with a
+in creating new objects that share attributes. We learned that we shouldn't
+define a method inside a constructor function because we will end up with a
 copy of that function inside every instance. So how should we get behavior in
 our custom objects?
 
