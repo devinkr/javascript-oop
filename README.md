@@ -149,17 +149,17 @@ Now, let's create `wonderWoman` using the constructor function instead of an
 object literal:
 
 ```js
-const wonderWoman = new Hero('Diana Prince',
-                           'Wonder Woman',
-                           'Deflect bullets with bracelets')
+const wonderWoman = new Hero('Diana Prince', 'Wonder Woman', 'Deflect bullets with bracelets')
 //=> undefined
 
 wonderWoman
-/* => { name: 'Diana Prince',
+/* => { 
+  name: 'Diana Prince',
   alias: 'Wonder Woman',
   power: 'Deflects bullets with bracelets',
-  usePower: [Function] }
-  */
+  usePower: [Function] 
+}
+*/
 ```
 
 The `new` keyword in JavaScript does the following, in order:
@@ -236,9 +236,6 @@ _me_: There aren't **real** classes in JavaScript.  Classes in JavaScript are ju
 
 ## Classes in ES6
 
-> Follow along with Prompt #1 in [JS OOP
-> Practice](https://git.generalassemb.ly/dc-wdi-fundamentals/js-oop-practice)
-
 The syntax to define a class in JavaScript looks like this:
 
 ![Class Syntax](assets/js-class-syntax.png)
@@ -271,25 +268,11 @@ How is this different from the way that we saw it used with constructors before?
 
 ### You Do: Define an Animal Class
 
-> 10 min to work, 5 min to share with the class
-
-Work through Prompt #2 in [JS OOP
-Practice](https://git.generalassemb.ly/dc-wdi-fundamentals/js-oop-practice)
+Define a class for your favorite animal (dog, cat, giraffe, etc). Give your class 3 attributes and an eat method. After you've defined your class, create 3 instances.
 
 ## Inheritance
 
 One of the core concepts of OOP we need to implement is inheritance.
-
-> Follow along with Prompt #3 in [JS OOP
-> Practice](https://git.generalassemb.ly/dc-wdi-fundamentals/js-oop-practice)
-
-### Turn & Talk
-
-Turn to your neighbor or the people in your row and discuss the following
-questions:
-
-* What is inheritance in this case?
-* What problem does inheritance solve?
 
 ### Inheritance in JavaScript
 
@@ -344,10 +327,35 @@ method of our `Car` class.
 
 ## You Do: Extend an Animal Class
 
-Work through Prompt #4 in [JS OOP
-Practice](https://git.generalassemb.ly/dc-wdi-fundamentals/js-oop-practice)
+Define and Animal class with the following properties and methods:
 
-## You Do: Game of Cards
+-  group (Invertebrates, Fish, Amphibians, Reptiles, Birds, and Mammals)
+-  eat: log "yum yum" to the console
+-  sleep: log "zzzzz" to the console
 
-Work through Prompt #5 in [JS OOP
-Practice](https://git.generalassemb.ly/dc-wdi-fundamentals/js-oop-practice)
+Modify your animal from the previous prompt so that it extends your new Animal class.
+
+Create an instance of your animal class (the one that extends the Animal class).
+
+## BONUS: Game of Cards
+
+Define a Card class with the following properties:
+
+- suit (hearts, spades, clubs, diamonds)
+- rank (Ace, 2, 3, 4, .. Jack, Queen, King)
+- score (1, 2, 3, 4, ... 11, 12, 13)
+
+Define a Deck class with the following properties and methods:
+
+-  length (the number of cards - should start at 52)
+-  cards (an array of cards in the deck)
+-  draw: return a random card from the cards array
+
+When you create an instance of your Deck class (i.e. in your constructor),
+fill in the cards array with 52 instances of your Card class. You can do
+this with a nested for loop - first loop through an array of all possible
+suits, then loop through an array of all possible ranks. Inside your inner
+loop, create an instance of your Card class and push it into the Deck's cards
+array.
+
+Instantiate an instance of your Deck and start drawing random cards!
