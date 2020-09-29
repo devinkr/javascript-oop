@@ -14,44 +14,31 @@
 
 Object oriented programming (OOP) isn't a language or a tool. OOP is a style of programming — what we call a **programming paradigm**.  The four pillars of object oriented programming are:
 
-1.   **Encapsulation**
-2.   **Abstraction**
-3.   **Inheritance**
-4.   **Polymorphism**
-
-### Encapsulation
-
-Encapsulation is one method that we use to try to make complex systems easier to use.  Encapsulation is defined as _the action of enclosing something in, or as if in, a capsule_.  In programming, the _capsule_ is an object.  This makes our code clearer and cleaner because all of the related parts are grouped together!
-
-We also use encapsulation to hide all of the really complex parts of our code, while providing simple ways to access the essential parts from the outside only when necessary.  This means we can isolate the impact of changes in the internal, hidden parts has on the overall system.
-
-### Abstraction
-
-Abstraction is a concept that is closely related to encapsulation.  It's also a way to remove complexity.  Think of your phone.  It's got a pretty simple user _**interface**_: maybe it has a screen and one button (maybe not even a button!), but the internal logic board of the phone is super complicated.  As a user, we don't need to know anything about how the phone's logic board works in order to use it. This is an example of abstraction in the real world.
-
-Both abstraction and encapsulation aim to reduce complexity in our code.  Encapsulation refers to the things we do to reduce the complexity in our implementation or how our code is actually written.   Abstraction refers to how we design or architect our code.  Thus abstraction happens when we plan and encapsulation happens when we execute the plan.
-
-### Inheritance
-
-One of the chief problems with encapsulating all of our code into self contained objects is that there's a strong possibility that we'll have lots of duplicated code among objects of a similar type.  Inheritance helps us solve that problem.
-
-Let's put this in terms of a real life example too.  Imagine you've got a program with different types of users.  Some users are administrators who can do lots more in our app than customers can. Even though they are different they share a lot in common.  They both have emails, usernames, passwords, profile pictures and much more.
-
-Using inheritance we can put all of things that users have in common inside of one object called **User** and then create separate objects for an Admin and a Customer.  Both of the Admin and the Customer will _**inherit**_ the properties and behaviors that they share in common from the User.  This helps make our code DRYer.
-
-### Polymorphism
-
-Poly means _many_ and morph means _form_, so polymorphism is many forms.  Lets imagine that you have a program with animals (it  could totally happen :smile:). All of the animals have the same method called **move**.  This method causes the animals to walk to a specific location on the screen.  It works great for some of our animals, but not for the fish or birds in our program.  They need a different type of implementation for moving, they need to swim or fly, not walk.  So the method move can take _**many forms**_, depending on the animal type that uses it!
-
-Polymorphism makes our code easier to understand and work with because it's way less complicated to remember that every animal has a move method, than to remember that the method for a dog is called walk and the one for the catfish is swim, or the one for the pigeon is fly.  It's also clearer to us if each type of animal is responsible for it's own implementation of move than to have a single method called move that uses a gigantic conditional statement to determine how that one method should be applied to different types of animals.
-
-### OOP Lab
-
-Break up into groups and come up with a way to describe each of these concepts to a 10 year old child.  Put each in terms of a real life example or object like a washing machine or car.
+<details>
+  <summary><strong>1. Encapsulation</strong></summary>
+  <p>Encapsulation is one method that we use to try to make complex systems easier to use.  Encapsulation is defined as _the action of enclosing something in, or as if in, a capsule_.  In programming, the _capsule_ is an object.  This makes our code clearer and cleaner because all of the related parts are grouped together!</p>
+  <p>We also use encapsulation to hide all of the really complex parts of our code, while providing simple ways to access the essential parts from the outside only when necessary.  This means we can isolate the impact of changes in the internal, hidden parts has on the overall system.</p>
+</details>
+<details>
+  <summary><strong>2. Abstraction</strong></summary>
+  <p>Abstraction is a concept that is closely related to encapsulation.  It's also a way to remove complexity.  Think of your phone.  It's got a pretty simple user _**interface**_: maybe it has a screen and one button (maybe not even a button!), but the internal logic board of the phone is super complicated.  As a user, we don't need to know anything about how the phone's logic board works in order to use it. This is an example of abstraction in the real world.</p>
+  <p>Both abstraction and encapsulation aim to reduce complexity in our code.  Encapsulation refers to the things we do to reduce the complexity in our implementation or how our code is actually written.   Abstraction refers to how we design or architect our code.  Thus abstraction happens when we plan and encapsulation happens when we execute the plan.</p>
+</details>
+<details>
+  <summary><strong>3. Inheritance</strong></summary>
+  <p>One of the chief problems with encapsulating all of our code into self contained objects is that there's a strong possibility that we'll have lots of duplicated code among objects of a similar type.  Inheritance helps us solve that problem.</p>
+  <p>Let's put this in terms of a real life example too.  Imagine you've got a program with different types of users.  Some users are administrators who can do lots more in our app than customers can. Even though they are different they share a lot in common.  They both have emails, usernames, passwords, profile pictures and much more.</p>
+  <p>Using inheritance we can put all of things that users have in common inside of one object called **User** and then create separate objects for an Admin and a Customer.  Both of the Admin and the Customer will _**inherit**_ the properties and behaviors that they share in common from the User.  This helps make our code DRYer.</p>
+</details>
+<details>
+  <summary><strong>4. Polymorphism</strong></summary>
+  <p>Poly means _many_ and morph means _form_, so polymorphism is many forms.  Lets imagine that you have a program with animals (it  could totally happen :smile:). All of the animals have the same method called **move**.  This method causes the animals to walk to a specific location on the screen.  It works great for some of our animals, but not for the fish or birds in our program.  They need a different type of implementation for moving, they need to swim or fly, not walk.  So the method move can take _**many forms**_, depending on the animal type that uses it!</p>
+  <p>Polymorphism makes our code easier to understand and work with because it's way less complicated to remember that every animal has a move method, than to remember that the method for a dog is called walk and the one for the catfish is swim, or the one for the pigeon is fly.  It's also clearer to us if each type of animal is responsible for it's own implementation of move than to have a single method called move that uses a gigantic conditional statement to determine how that one method should be applied to different types of animals.</p>
+</details>
 
 ## JavaScript and OOP
 
-As we've seen, OOP is not a language, it's just a collection of principles that guide how we write and organize our code.  Some languages are considered to be Object Oriented Programming languages though.  These languages treat everything like an object and use classes as a way to define those objects (think of classes like a blueprint for the object).  Languages like Ruby and Python fall into this category.  Some languages, like C-base languages (e.g., C#, C++, Java), are also considered to be object-oriented programming languages even though they don't strictly treat everything like an object.
+OOP is not a language, it's just a collection of principles that guide how we write and organize our code.  Some languages are considered to be Object Oriented Programming languages though.  These languages treat everything like an object and use classes as a way to define those objects (think of classes like a blueprint for the object).  Languages like Ruby and Python fall into this category.  Some languages, like C-base languages (e.g., C#, C++, Java), are also considered to be object-oriented programming languages even though they don't strictly treat everything like an object.
 
 Then there's JavaScript... this one is a little controversal.  JavaScript doesn't treat everything as an object nor is based on classes.  JavaScript uses prototypes instead of classes.  So is it an object oriented programming language?  Well, that's a question for others to fight over.  What we can say about JavaScript is that we can absolutely write our code in an object-oriented style following the principles of the OOP paradigm.  In fact, this is one of the most popular ways that you'll see JavaScript used in the wild.
 
