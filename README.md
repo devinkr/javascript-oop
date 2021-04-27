@@ -10,6 +10,219 @@
 -   Use the `new` keyword to create instances of a class or prototype
 -   Define and put inheritance into practice
 
+## Objects in Review
+
+Let's visit a site most of you will probably be familiar with, [Amazon](https://www.amazon.com). If we type something to search for, you may notice all the results have similar properties. Things like, _price_, _title_, _reviews_, _Prime eligibility_ and a _picture_.
+
+In programming, we need a way to contain logic and data about things in the real world and represent them in our programs. An effective way to do this is with _objects_.
+
+In JavaScript, **objects are collections of properties(key-value pairs)**. We can add, remove, or change these properties as we please. The simplest way to create an object is by using **object literal notation**.
+
+```js
+const car = {
+  make: 'Honda',
+  model: 'Civic',
+  year: 1997, // Generally, there's no comma after the last pair!
+};
+```
+
+> "make" is the key, while "Honda" is the value
+
+> Objects must have both a key and a value - neither can be empty.
+
+Objects are a complex data type - sometimes referred to as a dictionary/hash/map.
+
+- They are a collection of key-value pairs called properties.
+- Key-value pairs are separated by commas.
+- The keys which we explicitly state when defining a property are analogous to our array indexes. They are how we access the associated value (more below).
+
+In the above example, the variable `car` points to an object literal. This particular object has 3 properties: `make`, `model` and `year`.
+
+We could store this same information in an array like this...
+
+```js
+const car = ['Honda', 'Civic', 1997];
+```
+
+What advantages might there be in storing `car` as an object?
+
+#### Create
+
+We already saved a sample object to a `car` variable. We did this using **object literal notation**.
+
+```js
+const car = {
+  make: 'Honda',
+  model: 'Civic',
+  year: 1997,
+  'tire-type': 'Goodyear',
+  // NOTE: Keys with a "-" or space in their name must be surrounded by quotation marks.
+  // NOTE: You should use camelCase in JS, but sometimes you need to work with hyphens in JSON objects, if they were generated from a non-JavaScript API.
+};
+```
+
+#### Read
+
+To access object properties, we use either dot `.property` or bracket `['property']` notation.
+
+```js
+console.log( car.make )
+console.log( car['make'] )
+
+// What happens when we try to access a property yet to be defined?
+console.log( car.owner )
+
+// NOTE: When accessing properties whose keys have a "-" or space in them, you must use bracket notation.
+console.log( car['tire-type'] )
+
+// NOTE: When accessing properties with a variable, you must also use bracket notation
+function(carProp) {
+  car[carProp]
+}
+```
+
+Dot notation is much more common than bracket notation. Why might that be?
+
+#### Update
+
+Call on the object property just like we did when reading it, and use the assignment operator `=` followed by its new value.
+
+```js
+car.year = 2003;
+// or
+car['year'] = 2003;
+```
+
+We can also create brand new properties for an object after it's initialized using this method.
+
+```js
+// Now our car has a smell property equal to "Leathery Boot". We did not initially declare this property.
+car.smell = 'Leathery Boot';
+
+console.log(car);
+```
+
+#### Delete
+
+If you want to delete an object property entirely, use the `delete` keyword.
+
+- This deletes the whole key-value pair, not just the value.
+- You won't do this often.
+
+```js
+delete car.smell;
+```
+
+## Methods
+
+Methods are functions that are attached to some object.
+
+```js
+// Our car now has a drive method...
+const car = {
+  make: 'Honda',
+  model: 'Civic',
+  color: 'red',
+  drive: function () {
+    console.log('vroom vroom');
+  },
+  gears: ['Reverse', 'Neutral', '1', '2', '3', '4'],
+  engine: {
+    horsepower: '6 horses',
+    pistons: 12,
+    fast: true,
+    furious: false,
+  },
+  // Methods can take arguments
+  gps: function (location) {
+    console.log(`Beep boop, driving to ${location}`);
+  },
+};
+
+// We can run the car's two methods like so...
+car.drive();
+car.gps('neverland');
+```
+
+Checkout our awesome souped-up car! With methods as part of our Javascript toolbox, we now have an interface with which we can interact with our objects.
+
+> We've only scratched the surface for objects. We'll dive a bit deeper into them later.  If you're looking for more on the power of objects and functions, we recommend reading [The Secret Life of JS Objects](http://eloquentjavascript.net/06_object.html) chapter in Eloquent JS
+
+# Context
+
+## What is Context?
+
+In Javascript, context tells us where functions are invoked.
+
+In short, the **context is the object that a function is attached to**. We'll see that context can change under certain circumstances.
+
+Every time a Javascript function is called, a context is determined / set. That context is always an object, and can be referenced in the function definition using a special keyword in JS, `this`.
+
+We use `this` similar to the way we use pronouns in natural languages like English and French. Say we write:
+
+```
+John bites an apple. The apple tastes good
+```
+
+We can also say it another way:
+
+```
+John bites an apple. This tastes good
+```
+
+What does `this` refer to?` The apple.
+
+In a similar manner, we use the `this` keyword as a replacement for the subject in question.
+
+### `this` in an Object
+
+Here's an example of the most common way context is determined for a function. When a method is called on an object, that object becomes the context...
+
+```js
+const user = {
+  fullName: 'James Reichard',
+  sayName: function () {
+    console.log(`My name is ${this.fullName}.`);
+  },
+};
+user.sayName();
+```
+
+<details>
+  <summary><strong>What does <code>this</code> represent here?</strong></summary>
+
+> Here the object that the method is being called on is `user`
+
+</details>
+
+### Default Context
+
+When a function is called, but it's not a method on an object, and no context is otherwise assigned (see later sections), then the context is set to the default context. In a browser, the default context is the `window` object.
+
+```js
+function revealThis() {
+  console.log(this);
+}
+
+revealThis();
+```
+
+### A Rule of Thumb
+
+In general, `this` is probably the **parent** or enclosing item (item being function or object)
+
+Some exceptions are:
+- In an event listener function, `this` is the thing where the event originated (such as the button that was clicked).
+- In another callback function, in which case `this` is probably the `window`.
+- When `.bind()` is used to change the context manually.
+
+When in doubt, log it out...
+
+```js
+console.log(this);
+```
+
+
 ## Object Oriented Programming
 
 Object oriented programming (OOP) isn't a language or a tool. OOP is a style of programming — what we call a **programming paradigm**.  The four pillars of object oriented programming are:
@@ -160,7 +373,7 @@ If we forget to use the `new` keyword what happens is that the context of `this`
 
 A new object created this way is sometimes called an 'instance' of type `Hero`.
 
-### You Do: Refactor Object Literals Using Constructors
+### We Do: Refactor Object Literals Using Constructors
 
 You're working for a car rental company called CarMeisters.  Your code contains a whole bunch of objects like this:
 
@@ -221,9 +434,6 @@ our custom objects?
 1. Observe that this method isn't part of objects created using the constructor
    function.
 
-### You Do: Add Methods to the Prototype
-
-How can you refactor your `Car` using a protoype so that we have a more efficient system?  Add a protoype and move the methods there that all of the cars share!
 
 ## Classes in JavaScript
 
