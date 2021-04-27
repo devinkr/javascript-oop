@@ -12,9 +12,8 @@
 
 ## Objects in Review
 
-Let's visit a site most of you will probably be familiar with, [Amazon](https://www.amazon.com). If we type something to search for, you may notice all the results have similar properties. Things like, _price_, _title_, _reviews_, _Prime eligibility_ and a _picture_.
+In programming, _objects_ give us the ability to encapsulate logic and data about things in the real world and represent them in our programs. 
 
-In programming, we need a way to contain logic and data about things in the real world and represent them in our programs. An effective way to do this is with _objects_.
 
 In JavaScript, **objects are collections of properties(key-value pairs)**. We can add, remove, or change these properties as we please. The simplest way to create an object is by using **object literal notation**.
 
@@ -26,27 +25,11 @@ const car = {
 };
 ```
 
-> "make" is the key, while "Honda" is the value
-
-> Objects must have both a key and a value - neither can be empty.
-
-Objects are a complex data type - sometimes referred to as a dictionary/hash/map.
-
-- They are a collection of key-value pairs called properties.
-- Key-value pairs are separated by commas.
-- The keys which we explicitly state when defining a property are analogous to our array indexes. They are how we access the associated value (more below).
-
 In the above example, the variable `car` points to an object literal. This particular object has 3 properties: `make`, `model` and `year`.
 
-We could store this same information in an array like this...
+What advantages to using an object to store this information versus an array?
 
-```js
-const car = ['Honda', 'Civic', 1997];
-```
-
-What advantages might there be in storing `car` as an object?
-
-#### Create
+### Create
 
 We already saved a sample object to a `car` variable. We did this using **object literal notation**.
 
@@ -61,7 +44,7 @@ const car = {
 };
 ```
 
-#### Read
+### Read
 
 To access object properties, we use either dot `.property` or bracket `['property']` notation.
 
@@ -81,9 +64,9 @@ function(carProp) {
 }
 ```
 
-Dot notation is much more common than bracket notation. Why might that be?
+Dot notation is much more common than bracket notation.
 
-#### Update
+### Update
 
 Call on the object property just like we did when reading it, and use the assignment operator `=` followed by its new value.
 
@@ -102,7 +85,7 @@ car.smell = 'Leathery Boot';
 console.log(car);
 ```
 
-#### Delete
+### Delete
 
 If you want to delete an object property entirely, use the `delete` keyword.
 
@@ -113,7 +96,7 @@ If you want to delete an object property entirely, use the `delete` keyword.
 delete car.smell;
 ```
 
-## Methods
+### Methods
 
 Methods are functions that are attached to some object.
 
@@ -148,13 +131,9 @@ Checkout our awesome souped-up car! With methods as part of our Javascript toolb
 
 > We've only scratched the surface for objects. We'll dive a bit deeper into them later.  If you're looking for more on the power of objects and functions, we recommend reading [The Secret Life of JS Objects](http://eloquentjavascript.net/06_object.html) chapter in Eloquent JS
 
-# Context
+## Context
 
-## What is Context?
-
-In Javascript, context tells us where functions are invoked.
-
-In short, the **context is the object that a function is attached to**. We'll see that context can change under certain circumstances.
+In Javascript, context tells us where functions are invoked.  In short, the **context is the object that a function is attached to**. 
 
 Every time a Javascript function is called, a context is determined / set. That context is always an object, and can be referenced in the function definition using a special keyword in JS, `this`.
 
@@ -197,7 +176,7 @@ user.sayName();
 
 ### Default Context
 
-When a function is called, but it's not a method on an object, and no context is otherwise assigned (see later sections), then the context is set to the default context. In a browser, the default context is the `window` object.
+When a function is called, but it's not a method on an object, and no context is otherwise assigned, then the context is set to the default context. In a browser, the default context is the `window` object.
 
 ```js
 function revealThis() {
@@ -221,7 +200,7 @@ When in doubt, log it out...
 ```js
 console.log(this);
 ```
-
+Now that we've had a refresher on Objects and `this` in JavaScript, we've got a foundation to talk about Object Oriented Programming!
 
 ## Object Oriented Programming
 
@@ -229,23 +208,23 @@ Object oriented programming (OOP) isn't a language or a tool. OOP is a style of 
 
 <details>
   <summary><strong>1. Encapsulation</strong></summary>
-  <p>Encapsulation is one method that we use to try to make complex systems easier to use.  Encapsulation is defined as _the action of enclosing something in, or as if in, a capsule_.  In programming, the _capsule_ is an object.  This makes our code clearer and cleaner because all of the related parts are grouped together!</p>
+  <p>Encapsulation is one method that we use to try to make complex systems easier to use.  Encapsulation is defined as <i>the action of enclosing something in, or as if in, a capsule</i>.  In programming, the <i>capsule</i> is an object.  This makes our code clearer and cleaner because all of the related parts are grouped together!</p>
   <p>We also use encapsulation to hide all of the really complex parts of our code, while providing simple ways to access the essential parts from the outside only when necessary.  This means we can isolate the impact of changes in the internal, hidden parts has on the overall system.</p>
 </details>
 <details>
   <summary><strong>2. Abstraction</strong></summary>
-  <p>Abstraction is a concept that is closely related to encapsulation.  It's also a way to remove complexity.  Think of your phone.  It's got a pretty simple user _**interface**_: maybe it has a screen and one button (maybe not even a button!), but the internal logic board of the phone is super complicated.  As a user, we don't need to know anything about how the phone's logic board works in order to use it. This is an example of abstraction in the real world.</p>
+  <p>Abstraction is a concept that is closely related to encapsulation.  It's also a way to remove complexity.  Think of your phone.  It's got a pretty simple user <em><b>interface</b></em>: maybe it has a screen and one button (maybe not even a button!), but the internal logic board of the phone is super complicated.  As a user, we don't need to know anything about how the phone's logic board works in order to use it. This is an example of abstraction in the real world.</p>
   <p>Both abstraction and encapsulation aim to reduce complexity in our code.  Encapsulation refers to the things we do to reduce the complexity in our implementation or how our code is actually written.   Abstraction refers to how we design or architect our code.  Thus abstraction happens when we plan and encapsulation happens when we execute the plan.</p>
 </details>
 <details>
   <summary><strong>3. Inheritance</strong></summary>
   <p>One of the chief problems with encapsulating all of our code into self contained objects is that there's a strong possibility that we'll have lots of duplicated code among objects of a similar type.  Inheritance helps us solve that problem.</p>
   <p>Let's put this in terms of a real life example too.  Imagine you've got a program with different types of users.  Some users are administrators who can do lots more in our app than customers can. Even though they are different they share a lot in common.  They both have emails, usernames, passwords, profile pictures and much more.</p>
-  <p>Using inheritance we can put all of things that users have in common inside of one object called **User** and then create separate objects for an Admin and a Customer.  Both of the Admin and the Customer will _**inherit**_ the properties and behaviors that they share in common from the User.  This helps make our code DRYer.</p>
+  <p>Using inheritance we can put all of things that users have in common inside of one object called <b>User</b> and then create separate objects for an Admin and a Customer.  Both of the Admin and the Customer will <em><b>inherit</b></em> the properties and behaviors that they share in common from the User.  This helps make our code DRYer.</p>
 </details>
 <details>
   <summary><strong>4. Polymorphism</strong></summary>
-  <p>Poly means _many_ and morph means _form_, so polymorphism is many forms.  Lets imagine that you have a program with animals (it  could totally happen :smile:). All of the animals have the same method called **move**.  This method causes the animals to walk to a specific location on the screen.  It works great for some of our animals, but not for the fish or birds in our program.  They need a different type of implementation for moving, they need to swim or fly, not walk.  So the method move can take _**many forms**_, depending on the animal type that uses it!</p>
+  <p>Poly means <i>many</i> and morph means <i>form</i>, so polymorphism is many forms.  Lets imagine that you have a program with animals (it  could totally happen :smile:). All of the animals have the same method called <b>move</b>.  This method causes the animals to walk to a specific location on the screen.  It works great for some of our animals, but not for the fish or birds in our program.  They need a different type of implementation for moving, they need to swim or fly, not walk.  So the method move can take <em><b>many forms</b></em>, depending on the animal type that uses it!</p>
   <p>Polymorphism makes our code easier to understand and work with because it's way less complicated to remember that every animal has a move method, than to remember that the method for a dog is called walk and the one for the catfish is swim, or the one for the pigeon is fly.  It's also clearer to us if each type of animal is responsible for it's own implementation of move than to have a single method called move that uses a gigantic conditional statement to determine how that one method should be applied to different types of animals.</p>
 </details>
 
@@ -439,7 +418,7 @@ our custom objects?
 
 _you_: Wait, you said that there weren't classes in JavaScript...
 
-_me_: There aren't **real** classes in JavaScript.  Classes in JavaScript are just _**syntactic sugar**_.  Syntactic sugar is syntax within a programming language that is designed to make things easier to read or to express. It makes the language "sweeter" for human use.
+_me_: There aren't **actual** classes in JavaScript.  Classes in JavaScript are just _**syntactic sugar**_.  Syntactic sugar is syntax within a programming language that is designed to make things easier to read or to express. It makes the language "sweeter" for human use.
 
 ## Classes in ES6
 
@@ -475,7 +454,7 @@ How is this different from the way that we saw it used with constructors before?
 
 ### You Do: Define an Animal Class
 
-Define a class for your favorite animal (dog, cat, giraffe, etc). Give your class 3 attributes and an eat method. After you've defined your class, create 3 instances.
+Define a class for your favorite animal (like a dog, cat, or snake). Give your class 3 attributes and an eat method. After you've defined your class, create 3 instances.
 
 ## Inheritance
 
@@ -534,7 +513,7 @@ method of our `Car` class.
 
 ## You Do: Extend an Animal Class
 
-Define and Animal class with the following properties and methods:
+Define an Animal class with the following properties and methods:
 
 -  group (Invertebrates, Fish, Amphibians, Reptiles, Birds, and Mammals)
 -  eat: log "yum yum" to the console
@@ -544,7 +523,7 @@ Modify your animal from the previous prompt so that it extends your new Animal c
 
 Create an instance of your animal class (the one that extends the Animal class).
 
-## BONUS: Game of Cards
+## You Do: Game of Cards
 
 Define a Card class with the following properties:
 
