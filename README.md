@@ -4,7 +4,7 @@
 
 -   Use a constructor function to produce objects of a particular type.
 -   Attach attributes to a new object using the constructor.
--   Recall the cost of defining methods inside a constructor function.
+-   Understand the cost of defining methods inside a constructor function.
 -   Define methods on custom objects by attaching them to the prototype.
 -   Refactor prototypes using ES6 class syntax
 -   Use the `new` keyword to create instances of a class or prototype
