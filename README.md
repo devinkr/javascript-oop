@@ -4,7 +4,7 @@
 
 -   Use a constructor function to produce objects of a particular type.
 -   Attach attributes to a new object using the constructor.
--   Recall the cost of defining methods inside a constructor function.
+-   Understand the cost of defining methods inside a constructor function.
 -   Define methods on custom objects by attaching them to the prototype.
 -   Refactor prototypes using ES6 class syntax
 -   Use the `new` keyword to create instances of a class or prototype
@@ -228,6 +228,10 @@ Object oriented programming (OOP) isn't a language or a tool. OOP is a style of 
   <p>Polymorphism makes our code easier to understand and work with because it's way less complicated to remember that every animal has a move method, than to remember that the method for a dog is called walk and the one for the catfish is swim, or the one for the pigeon is fly.  It's also clearer to us if each type of animal is responsible for it's own implementation of move than to have a single method called move that uses a gigantic conditional statement to determine how that one method should be applied to different types of animals.</p>
 </details>
 
+### You Do: 
+
+In breakout rooms, come up with real-world examples of these four pillars of OOP! 
+
 ## JavaScript and OOP
 
 OOP is not a language, it's just a collection of principles that guide how we write and organize our code.  Some languages are considered to be Object Oriented Programming languages though.  These languages treat everything like an object and use classes as a way to define those objects (think of classes like a blueprint for the object).  Languages like Ruby and Python fall into this category.  Some languages, like C-base languages (e.g., C#, C++, Java), are also considered to be object-oriented programming languages even though they don't strictly treat everything like an object.
@@ -341,6 +345,8 @@ wonderWoman
 */
 ```
 
+### Your turn: Create two more instances of the `Hero` class! Log them out to make sure they work.
+
 The `new` keyword in JavaScript does the following, in order:
 
 1. Creates an empty object (`{}`).
@@ -407,11 +413,39 @@ our custom objects?
 ### We Do: Add Methods to the Prototype
 
 1. Create `usePower` and attach it to the constructor function's prototype.
-1. Create a method to say the hero's name and alias. Attach it to the
-   prototype.
-1. Create `batman` and `wonderWoman`. Call the method just attached.
+
+```js
+const usePower = function () {
+  return this._power;
+};
+
+// Constructor function
+const Hero = function (name, alias, power) {
+  this.name = name;
+  this.alias = alias;
+  this._power = power;
+};
+
+Hero.prototype.usePower = usePower;
+
+const wonderWoman = new Hero(
+  'Diana Prince',
+  'Wonder Woman',
+  'Deflects bullets with bracelets'
+);
+
+const batMan = new Hero('Bruce Wayne', 'The Bat Man', 'Has cool toys');
+
+console.log(wonderWoman, batMan);
+// Notice that the Hero instances' `usePower` method now lives in the Prototype, instead of a separate copy of the function being attached to each Hero instance! 😎
+```
+
+### You Try: 
+
+1. Create a method to say the hero's name and alias for the code snippet above. Attach it to the prototype.
+1. Create new instances of Heroes. Call the method just attached on each Hero.
 1. Observe that this method isn't part of objects created using the constructor
-   function.
+   function! 
 
 
 ## Classes in JavaScript
